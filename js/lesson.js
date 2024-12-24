@@ -14,7 +14,7 @@
       }
 
 }
-//1/ТРЕТЬЕ  ' TAB SLIDER'
+//1/3  ' TAB SLIDER'
 const  tabContentBlocks = document.querySelectorAll('.tab_content_block')
 const tabs = document.querySelectorAll('.tab_content_item')
 const tabsParent = document.querySelector('.tab_content_items')
@@ -60,7 +60,7 @@ tabsParent.onclick = (event) => {
     }
 
 }
-   // ПЯТОЕ
+   // 5
  // CONVERTER
  const somInput = document.querySelector('#som')
  const usdInput = document.querySelector('#usd')
@@ -102,38 +102,15 @@ tabsParent.onclick = (event) => {
  converter(usdInput, somInput, euroInput)
  converter(euroInput,somInput,usdInput)
 
-  //CARD SWITCHER
-  //
-  // const cardBlock =document.querySelector('.card')
-  // const btnPrev =document.querySelector('#btn-prev')
-  // const btnNext =document.querySelector('#btn-next')
-  //
-  // let cardId= 0
-  //
-  // btnNext.onclick =() => {
-  //     cardId++
-  //     fetch(`https://jsonplaceholder.typicode.com/todos/${cardId}`)
-  //         .then( response => response.json())
-  //         .then(data =>{
-  //             const{title,complete,id} = data
-  //            cardBlock.innerHTML =`
-  //            <p>${title}</p>
-  //            <p>${complete}</p>
-  //            <span>${id}</span>
-  //            `
-  //         })
-  //
-  //     btnPrev.onclick = () => {
-  //
-  // }
+
  const cardBlock =document.querySelector('.card')
  const btnPrev =document.querySelector('#btn-prev')
  const btnNext =document.querySelector('#btn-next')
  let cardId = 0
- let maxId =200
+ let maxCardId =200
 
 
-   const  updateCard = () => {
+   const  card= () => {
 
        fetch(`https://jsonplaceholder.typicode.com/todos/${cardId}`)
            .then(response => response.json())
@@ -146,25 +123,28 @@ tabsParent.onclick = (event) => {
            })
    }
      btnNext.onclick = () => {
-        if (cardId >= maxId) {
+        if (cardId >= maxCardId) {
             cardId = 1
         }else {
             cardId++
         }
-         updateCard()
+         card()
      }
      btnPrev.onclick = () => {
          if (cardId <= 1){
-             cardId = maxId
+             cardId = maxCardId
          }else{
              cardId--
          }
-         updateCard()
+         card()
      }
 
  fetch('https://jsonplaceholder.typicode.com/posts')
      .then( (response) => response.json())
      .then((data) => console.log(data))
+
+
+
 
 
 
